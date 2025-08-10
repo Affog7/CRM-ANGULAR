@@ -1,0 +1,29 @@
+<div class="client-container">
+
+  <div class="header">
+    <h2>
+      <mat-icon color="primary">people</mat-icon>
+      Liste des Clients
+    </h2>
+    <button mat-raised-button color="accent" routerLink="/clients/new">
+      <mat-icon>add</mat-icon> Nouveau client
+    </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-list>
+    <mat-list-item *ngFor="let client of clients" class="client-item">
+      <mat-icon matListItemIcon color="accent">person</mat-icon>
+      <div matLine class="client-name">{{ client.nom }}</div>
+      <div matLine class="client-info">
+        <mat-icon class="icon-small" color="primary">email</mat-icon>
+        {{ client.email }}
+        <span class="separator">|</span>
+        <mat-icon class="icon-small" color="warn">phone</mat-icon>
+        {{ client.telephone }}
+      </div>
+    </mat-list-item>
+  </mat-list>
+
+</div>

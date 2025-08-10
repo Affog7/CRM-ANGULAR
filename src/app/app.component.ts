@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
+import {ClientListComponent} from './components/client-list/client-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,RouterLink],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  standalone: true,
+  styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
   title = 'CRM-Dashboard';

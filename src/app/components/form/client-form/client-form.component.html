@@ -1,0 +1,37 @@
+<!-- src/app/components/client-form/client-form.component.html -->
+<h2>Créer un nouveau client</h2>
+
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="form-container">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" placeholder="Ex: Jean Dupont">
+    <mat-error *ngIf="clientForm.get('nom')?.hasError('required')">
+      Le nom est obligatoire
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" placeholder="exemple@mail.com">
+    <mat-error *ngIf="clientForm.get('email')?.hasError('required')">
+      L'email est obligatoire
+    </mat-error>
+    <mat-error *ngIf="clientForm.get('email')?.hasError('email')">
+      L'email n'est pas valide
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Téléphone</mat-label>
+    <input matInput formControlName="telephone" placeholder="06 12 34 56 78">
+    <mat-error *ngIf="clientForm.get('telephone')?.hasError('required')">
+      Le téléphone est obligatoire
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="clientForm.invalid">
+    Ajouter
+  </button>
+
+</form>
