@@ -9,6 +9,7 @@ export interface Client {
   nom: string;
   email: string;
   telephone: string;
+  date_inscription: Date;
 }
 
 @Injectable({
@@ -27,11 +28,13 @@ export class ClientService {
   addClient(client: ɵTypedOrUntyped<{
     telephone: FormControl<string | null>;
     nom: FormControl<string | null>;
-    email: FormControl<string | null>
+    email: FormControl<string | null>;
+    date_inscription: FormControl<Date | null>;
   }, ɵFormGroupValue<{
     telephone: FormControl<string | null>;
     nom: FormControl<string | null>;
     email: FormControl<string | null>
+    date_inscription: FormControl<Date | null>
   }>, any>): Observable<Client> {
     return this.http.post<Client>(this.apiUrl, client);
   }
